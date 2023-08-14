@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row mb-3 mt-3">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <h5>To Do List</h5>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 text-end">
+      <div class="btn-group" role="group">
+        <button
+          type="button"
+          class="btn btn-warning btn-sm"
+          (click)="filterStatusAll()"
+        >
+          All
+        </button>
+        <button
+          type="button"
+          class="btn btn-success btn-sm"
+          (click)="filterStatusCom()"
+        >
+          Completed
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          (click)="filterStatusNotCom()"
+        >
+          Not Completed
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-3"
+      *ngFor="let user of filteredUsers; trackBy: identify"
+    >
+      <div class="card h-100">
+        <!-- <div class="card-header"></div> -->
+        <div class="card-body">
+          <p class="card_title">{{ user.title }}</p>
+          <p>
+            Status:
+            <span
+              [ngClass]="
+                user.completed === true
+                  ? 'status-class_completed'
+                  : 'status-class_notcompleted'
+              "
+              >{{ user.completed }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+$myColorRed: #dc3545;
+$myColorGreen: #198754;
+@mixin status-code {
+ padding: 2px 12px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.status-class_completed{
+   @include status-code;
+  background-color:$myColorGreen;
+
+}
+.status-class_notcompleted {
+  @include status-code;
+  background-color: $myColorRed;
+}
+.card_title {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.card_title:first-letter {
+  text-transform: uppercase
+}
